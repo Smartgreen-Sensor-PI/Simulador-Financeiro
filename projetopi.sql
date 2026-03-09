@@ -95,9 +95,6 @@ UPDATE login SET senha = 'gui454637' WHERE idlogin = '3';
 DROP TABLE login;
 
 
-
-
-
 Create table assinatura(
 idAssinatura INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(40) NOT NULL ,
@@ -108,10 +105,10 @@ valor  DECIMAL(10,2)
 
 
 INSERT INTO assinatura VALUES 
-(DEFAULT, 'João Miguel' , 'mensal' , 'Paga' , 395),
+(DEFAULT, 'João Miguel' , 'anual' , 'Paga' , 4600),
 (DEFAULT, 'Pedro' , 'anual' , 'Paga' , 4600),
-(DEFAULT, 'Guilherme' , 'mensal' , 'Pendente' , 4600),
-(DEFAULT, 'Pedro Rivello' , 'mensal' , 'Pendente' , 395),
+(DEFAULT, 'Guilherme' , 'anual' , 'Pendente' , 4600),
+(DEFAULT, 'Pedro Rivello' , 'anual' , 'Pendente' , 4600),
 (DEFAULT, 'Ana' , 'anual' , 'Paga' , 4600);
 
 SELECT * FROM assinatura;
@@ -120,10 +117,11 @@ SELECT * FROM assinatura WHERE fatura = 'Pendente';
 SELECT * FROM assinatura WHERE fatura = 'Paga';
 
 ALTER TABLE assinatura ADD CONSTRAINT chkPag CHECK( fatura IN('Paga','Pendente'));
+ALTER TABLE assinatura ADD CONSTRAINT chkPlan CHECK( plano IN('anual'));
 
 INSERT INTO assinatura VALUES 
 (DEFAULT, 'Beatriz', 'anual' , 'Pendente', 4600),
-(DEFAULT, 'Vitor' , 'mensal' , 'Paga', 395);
+(DEFAULT, 'Vitor' , 'anual' , 'Paga', 395);
 
 
 DELETE FROM assinatura WHERE idAssinatura = '1';
@@ -200,3 +198,4 @@ ALTER TABLE registro_sensor ADD CONSTRAINT chkStts CHECK (stts IN('Estável','In
 SELECT * FROM registro_sensor WHERE temperatura <17;
 DESCRIBE  registro_sensor;
 DROP TABLE registro_sensor;
+
