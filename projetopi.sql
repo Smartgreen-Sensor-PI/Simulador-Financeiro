@@ -183,13 +183,13 @@ stts VARCHAR(30)
 );
 
 INSERT INTO registro_sensor(codigo_sensor, temperatura, proprietario, stts) VALUES 
-('012601','18.2','João Miguel','Estável'),
-('012602','21.8','Pedro','Estável'),
-('012603','15.4','Guilherme','Estável'),
-('012604','19.2','Pedro Rivell','Estável'),
-('012605','26.3','Ana','Instável'),
-('012606','14.1','Beatriz','Instável'),
-('012607','17.2','Vitor','Estável');
+('012601','18.2','João Miguel','Dentro da faixa ideal'),
+('012602','21.8','Pedro','Dentro da faixa ideal'),
+('012603','15.4','Guilherme','Fora da faixa ideal'),
+('012604','19.2','Pedro Rivell','Dentro da faixa ideal'),
+('012605','26.3','Ana','Fora da faixa ideal'),
+('012606','14.1','Beatriz','Fora da faixa ideal'),
+('012607','17.2','Vitor','Fora da faixa ideal');
 
 SELECT * FROM registro_sensor;
 
