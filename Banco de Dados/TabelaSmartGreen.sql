@@ -61,6 +61,7 @@ fkEstufa INT NOT NULL,
 CREATE TABLE registro_sensor(
 idRegistro INT PRIMARY KEY auto_increment,
 temperatura DECIMAL(3,1) NOT NULL,
+umidade DECIMAL(3,1) NOT NULL,
 momento_registro DATETIME DEFAULT current_timestamp,
 	fkSensor int NOT NULL,
 		CONSTRAINT fkRegistroSensor 
