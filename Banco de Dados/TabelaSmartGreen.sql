@@ -2,7 +2,7 @@
 
 CREATE DATABASE smartgreen;
 use smartgreen;
-
+drop database smartgreen;
 
 CREATE TABLE login(
 idLogin INT PRIMARY KEY AUTO_INCREMENT,
@@ -12,9 +12,9 @@ senha VARCHAR(40) NOT NULL
 );
 
 
-CREATE TABLE usuario( 
-idUsuario INT PRIMARY KEY auto_increment,
-cpf VARCHAR(20) NOT NULL UNIQUE,
+CREATE TABLE cliente( 
+idCliente INT PRIMARY KEY auto_increment,
+cpf CHAR(11) NOT NULL UNIQUE,
 telefone varchar (15) NOT NULL UNIQUE,
 cidade VARCHAR (100) NOT NULL, 
 UF CHAR (2) NOT NULL,
@@ -40,7 +40,7 @@ volume DECIMAL(7,2),
 fkCliente INT NOT NULL,
 	CONSTRAINT fkEstufaCliente 
 		FOREIGN KEY (fkCliente)
-			REFERENCES cliente(idUsuario)
+			REFERENCES cliente(idCliente)
 );
 
 
@@ -84,19 +84,20 @@ VALUES (50.0, 10.0, 3.5, 500.0, 1750.0, 1);
 INSERT INTO sensor (estado, fkEstufa) 
 VALUES ('em funcionamento', 1);
 
-INSERT INTO registro_sensor (temperatura, fkSensor) VALUES (25.5, 1);
-INSERT INTO registro_sensor (temperatura, fkSensor) VALUES (26.2, 1);
-INSERT INTO registro_sensor (temperatura, fkSensor) VALUES (27.0, 1);
+INSERT INTO registro_sensor (umidade,temperatura, fkSensor) VALUES (60,25.5, 1);
+INSERT INTO registro_sensor (umidade,temperatura, fkSensor) VALUES (50,26.2, 1);
+INSERT INTO registro_sensor (umidade,temperatura, fkSensor) VALUES (99,27.0, 1);
 
 
 SELECT 
     nome AS 'Produtor',
     idEstufa AS 'Numero da Estufa',
     temperatura AS 'Temperatura Registrada (°C)',
+    umidade AS 'Umidade Registrada (%)',
     momento_registro AS 'Data e Hora'
 FROM login
 JOIN cliente ON fkLogin = idLogin 
-JOIN estufa ON fkCliente = idUsuario  
+JOIN estufa ON fkCliente = idCliente  
 JOIN sensor ON fkEstufa = idEstufa
 JOIN registro_sensor ON fkSensor = idSensor;
 
