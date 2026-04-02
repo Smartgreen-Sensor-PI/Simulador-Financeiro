@@ -1,4 +1,4 @@
-#include "DHT.h"
+/* #include "DHT.h"
 
 #define TIPO_SENSOR DHT11
 const int PINO_SENSOR_DHT11 = A0;
@@ -27,3 +27,4 @@ void loop() {
   delay(1000);
 }
 
+ */
