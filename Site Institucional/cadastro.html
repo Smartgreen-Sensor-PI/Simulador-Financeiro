@@ -23,7 +23,11 @@
 
         <h3>Digite sua senha:</h3>
         <input class="inputs" type="password" id="ipt_senha" placeholder="Sua senha">
+
+        <h3>Confirme a sua senha:</h3>
+        <input class="inputs" type="password" id="ipt_confirmacao" placeholder="Confirme a senha">
         <br>
+
         <button class="btn-verde" onclick="cadastrar()">Cadastrar</button>
     </div>
 
@@ -36,8 +40,9 @@
         let login = ipt_login.value;
         let email = ipt_email.value;
         let senha = ipt_senha.value;
+        let confirmacao = ipt_confirmacao.value;
 
-        if (login != '' && email != '' && senha != '') {
+        if (login != '' && email != '' && senha != '' && confirmacao!='') {
             alert('Cadastro realizado com sucesso');
         } else {
             alert('Necessário preencher todos os dados');
